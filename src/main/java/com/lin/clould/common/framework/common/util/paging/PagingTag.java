@@ -98,7 +98,7 @@ public class PagingTag extends TagSupport {
 				sbuf.append("&nbsp;");
 			}
 			if (hasPreviousPage) {
-				sbuf.append(makeLinkNext(cpage+1, "<img src='"+pageContexts+prevLabel+"' border='0'/>"));
+				sbuf.append(makeLinkNext(cpage - 1, "<img src='"+pageContexts+prevLabel+"' border='0'/>"));
 				//sbuf.append("&nbsp;");
 				//sbuf.append(makeLinkPrev(cpage - 1, "[이전]"));
 				//sbuf.append("&nbsp;");
