@@ -20,7 +20,7 @@
  var fn_linkPage = function(pageIndex){
 	 var f = document.noticeFrm;
 	 f.pageIndex.value = pageIndex;
-	 f.action = "/clould/main/main";
+	 f.action = "/main/main";
 	 f.submit();
  };
  
@@ -94,10 +94,10 @@
 						 page="${noticePage}" 
 						 totalCount="${noticeTotalCount}" 
 						 listPerPage="10" 
-						 beginLabel="/images/btn/btn_larrow.gif"
-						 prevLabel="/images/btn/btn_llarrow.gif"
-						 endLabel="/images/btn/btn_rrarrow.gif"
-						 nextLabel="/images//btn/btn_rarrow.gif"
+						 beginLabel="images/btn/btn_larrow.gif"
+						 prevLabel="images/btn/btn_llarrow.gif"
+						 endLabel="images/btn/btn_rrarrow.gif"
+						 nextLabel="images//btn/btn_rarrow.gif"
 						 pageGroupSize="5" 
 						 linkType="script" />
 			<!-- //paging -->
