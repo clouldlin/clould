@@ -55,9 +55,11 @@
 	<div class="content">
 		<div style="background-color:#C4FDFF; width: 40%;">
 		
-			<form name="noticeInsert" id="noticeInsert" method="post" action="/main/noticeInsert">
+			<form name="noticeInsert" id="noticeInsert" method="post" enctype="multipart/form-data" action="/main/noticeInsert">
 				<input type="text" size="15" name="title" id="title">
 				<input type="text" size="15" name="content" id="content">
+				<input type="file" size="15" name="file" id="file">
+				<input type="file" size="15" name="file1" id="file1">
 				<input type="submit" id="submit" value="등록">
 			</form>
 			
