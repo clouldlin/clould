@@ -1,25 +1,12 @@
 package com.lin.clould.common.framework.common.view;
 
-public class View {
+public interface View {
+	
+	public String getNextPage(); 
 
-	private String nextPage;
-	private boolean redirect;
+	public boolean isRedirect();
+	
+	public boolean isFile();
 
-	public View(String nextPage) {
-		this(nextPage, false);
-	}
-
-	public View(String nextPage, boolean redirect) {
-		this.nextPage = nextPage;
-		this.redirect = redirect;
-	}
-
-	public String getNextPage() {
-		return nextPage;
-	}
-
-	public boolean isRedirect() {
-		return redirect;
-	}
-
+	
 }

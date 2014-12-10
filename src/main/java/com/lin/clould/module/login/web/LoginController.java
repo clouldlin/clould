@@ -8,6 +8,7 @@ import com.lin.clould.common.framework.common.annotation.Controller;
 import com.lin.clould.common.framework.common.annotation.RequestMapping;
 import com.lin.clould.common.framework.common.util.session.SessionUtil;
 import com.lin.clould.common.framework.common.util.string.StringUtil;
+import com.lin.clould.common.framework.common.view.RequestView;
 import com.lin.clould.common.framework.common.view.View;
 import com.lin.clould.module.login.service.impl.LoginDao;
 import com.lin.clould.module.login.service.impl.LoginVO;
@@ -23,7 +24,7 @@ public class LoginController {
 		String view = null;
 		try {
 			if(SessionUtil.sessionCheck(request) ){
-				return new View(view, true);
+				return new RequestView(view, true);
 			}else{
 				String id = StringUtil.nvl(request.getParameter("id"));
 				String pw = StringUtil.nvl(request.getParameter("pw"));
@@ -37,7 +38,7 @@ public class LoginController {
 					HttpSession session = request.getSession();
 					session.setAttribute("person.sessionInfo", loginVO);
 					view = "main.do";
-					return new View(view, true);
+					return new RequestView(view, true);
 				}else{
 					System.out.println("인증 실패");
 					throw new Exception("아이디 또는 비밀번호가 일치하지 않습니다. \\n다시 확인 후 입력해 주시기 바랍니다.");
@@ -50,7 +51,7 @@ public class LoginController {
 			// logger.error(e.getMessage); // 내부 오류
 		}
 		
-		return new View(view);
+		return new RequestView(view);
 		
 	}
 	
@@ -61,6 +62,6 @@ public class LoginController {
 		session.invalidate();
 		//request.setAttribute("message", "로그아웃 되었습니다.");
 		//return new CommandResult("login/login");
-		return new View("/framework/framework/main/main.do", true);
+		return new RequestView("/framework/framework/main/main.do", true);
 	}
 }

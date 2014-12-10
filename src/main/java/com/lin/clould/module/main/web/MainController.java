@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.lin.clould.common.framework.common.annotation.Controller;
 import com.lin.clould.common.framework.common.annotation.RequestMapping;
 import com.lin.clould.common.framework.common.util.string.StringUtil;
+import com.lin.clould.common.framework.common.view.RequestView;
 import com.lin.clould.common.framework.common.view.View;
 import com.lin.clould.module.main.service.MainService;
 import com.lin.clould.module.main.service.impl.MainServiceImpl;
@@ -34,6 +35,6 @@ public class MainController {
 		request.setAttribute("noticeList", noticeList);
 		request.setAttribute("noticePage", request.getParameter("pageIndex"));
 		
-		return new View("main/main");
+		return new RequestView("main/main");
 	}
 }

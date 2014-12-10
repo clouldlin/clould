@@ -121,7 +121,14 @@ public class ProxyInvoker {
 		}
 		
 		View resutlObj = (View)method.invoke(obj, parameterArr);
-		logger.info("리턴값 :" + resutlObj.toString());
+		//logger.info("리턴값 :" + resutlObj.toString()); // View를 상속해서 파일view이면~~~ 처리
+		
+		
+		// 파일 리턴
+		if(resutlObj.isFile() == true){
+			// 파일다운로드 로그나 에러메시지 
+			return;
+		}
 		
 		// 리다이렉트
 		if(resutlObj.isRedirect() == true){
