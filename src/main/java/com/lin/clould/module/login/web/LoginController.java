@@ -42,7 +42,7 @@ public class LoginController {
 					return new RequestView(view, true);
 				}else{
 					System.out.println("인증 실패");
-					throw new Exception("아이디 또는 비밀번호가 일치하지 않습니다. \\n다시 확인 후 입력해 주시기 바랍니다.");
+					throw new Exception("아이디 또는 비밀번호가 일치하지 않습니다. \\n다시 확인 후 입력해 주시기 바랍니다.".getBytes("utf-8").toString());
 				}
 			}
 		} catch (Exception e) { // 만약 catch 절이 비어있다면, NullPointException도 무시된다.
