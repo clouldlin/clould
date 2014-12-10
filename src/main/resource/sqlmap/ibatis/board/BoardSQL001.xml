@@ -27,4 +27,12 @@
 		  FROM BOARD
 	</select>
 	
+	<!-- 메인 공지사항 등록 -->
+	<insert id="mainNoticeInsert" parameterClass="java.util.HashMap">
+		INSERT INTO BOARD (TITLE, CONTENT) 
+		<![CDATA[
+			VALUES (#title#, #content#);
+		]]>
+	</insert>
+	
 </sqlMap>

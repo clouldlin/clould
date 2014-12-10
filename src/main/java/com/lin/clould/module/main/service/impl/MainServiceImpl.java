@@ -18,5 +18,10 @@ public class MainServiceImpl implements MainService {
 	public Integer mainNoticeListTotalCount(Map<String, Object> paramMap) throws Exception {
 		return mainDAO.mainNoticeListTotalCount(paramMap);
 	}
+	
+	@Override
+	public void mainNoticeInsert(Map<String, Object> paramMap) throws Exception {
+		mainDAO.mainNoticeInsert(paramMap);
+	}
 
 }

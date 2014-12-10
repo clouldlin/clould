@@ -53,7 +53,14 @@
 	</div> 
 	<div class="sidebar"></div>
 	<div class="content">
-		<div style="background-color:#C4FDFF; width: 30%;">
+		<div style="background-color:#C4FDFF; width: 40%;">
+		
+			<form name="noticeInsert" id="noticeInsert" method="post" action="/main/noticeInsert">
+				<input type="text" size="15" name="title" id="title">
+				<input type="text" size="15" name="content" id="content">
+				<input type="submit" id="submit" value="등록">
+			</form>
+			
 			<div>
 				<form name="noticeFrm" id="noticeFrm" method="get">
 					<input type="hidden" name="pageIndex" />

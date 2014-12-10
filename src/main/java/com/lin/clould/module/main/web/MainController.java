@@ -45,4 +45,16 @@ public class MainController {
 		
 		return new RequestView("mypage/mypage");
 	}
+	
+	@RequestMapping("noticeInsert")
+	public View noticeInsert(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("title", request.getParameter("title"));
+		paramMap.put("content", request.getParameter("content"));
+		
+		mainService.mainNoticeInsert(paramMap);
+		
+		
+		return new RequestView("/main/main", true);
+	}
 }

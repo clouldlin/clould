@@ -15,4 +15,8 @@ public class MainDAO extends CommonDao {
 		return (Integer) selectByPk("BoardSQL001.mainNoticeListTotalCount",paramMap);
 	}
 
+	public void mainNoticeInsert(Map<String, Object> paramMap) throws Exception {
+		insert("BoardSQL001.mainNoticeInsert", paramMap);
+	}
+
 }
