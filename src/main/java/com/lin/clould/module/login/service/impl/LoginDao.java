@@ -9,6 +9,7 @@ public class LoginDao extends CommonDao {
 	}
 
 	private static LoginDao dao;
+	private LoginVO loginVO;
 
 	public static LoginDao getInstance() {
 		if (dao == null) {
@@ -19,8 +20,10 @@ public class LoginDao extends CommonDao {
 
 	public LoginVO selectUserById(String id) throws Exception {
 		
-		LoginVO loginVO = null; 
-		selectByPk(id, loginVO);
+		loginVO = new LoginVO();
+		
+		loginVO.setId("heo");
+		loginVO.setPw("heo");
 		
 		return loginVO;
 	}

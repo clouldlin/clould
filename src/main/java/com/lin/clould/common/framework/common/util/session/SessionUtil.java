@@ -40,7 +40,7 @@ public class SessionUtil {
 		if(session == null){
 			chk = false;
 		}else{
-			if( session.getAttribute("person.sessionInfo") != null){
+			if( session.getAttribute("clould.sessionInfo") != null){
 				chk = true;
 			}else{
 				chk = false;

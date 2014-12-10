@@ -43,7 +43,7 @@
 	<div class="header">
 		<div class="main_title">메인</div>
 		<div class="login">
-			<form method="post" action="${pageContext.request.contextPath}/framework/login/login.do">
+			<form method="post" action="/login/login">
 				<input type="text" size="15" name="id" id="id">
 				<input type="password" size="15" name="pasword" id="password">
 				<input type="submit" id="submit" value="로그인">

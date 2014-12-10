@@ -41,10 +41,12 @@ login = (function(win) {
 }(window));
 
 Common.eventBind(window, "load", function () {
+	/*
 	Common.eventBind(document.getElementById("submit"), "click", function (event) {
 		alert("이벤트!");
 		event.preventDefault(); 
 	});
+	*/
 });
 /*// 버튼 클릭시 실행 function
 function saveId(){

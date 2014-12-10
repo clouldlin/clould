@@ -113,7 +113,7 @@ public class ProxyInvoker {
 				System.out.println(sessionCertificationAnno.message());
 				
 				request.setAttribute("message", sessionCertificationAnno.message());
-				response.sendRedirect("/framework/framework/login/login.do");
+				response.sendRedirect("/main/main");
 				return;
 				//RequestDispatcher dispatcher = request.getRequestDispatcher("/framework/framework/login/login.do");
 				//dispatcher.forward(request, response);

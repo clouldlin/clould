@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lin.clould.common.framework.common.annotation.Controller;
 import com.lin.clould.common.framework.common.annotation.RequestMapping;
+import com.lin.clould.common.framework.common.annotation.SessionCertification;
 import com.lin.clould.common.framework.common.util.string.StringUtil;
 import com.lin.clould.common.framework.common.view.RequestView;
 import com.lin.clould.common.framework.common.view.View;
@@ -36,5 +37,12 @@ public class MainController {
 		request.setAttribute("noticePage", request.getParameter("pageIndex"));
 		
 		return new RequestView("main/main");
+	}
+	
+	@SessionCertification
+	@RequestMapping("mypage")
+	public View mypage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		return new RequestView("mypage/mypage");
 	}
 }

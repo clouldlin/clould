@@ -18,7 +18,7 @@ public class LoginController {
 	
 	private LoginDao dao = LoginDao.getInstance();
 	
-	@RequestMapping("login.do")
+	@RequestMapping("login")
 	public View login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setAttribute("module", "login");
 		String view = null;
@@ -27,17 +27,18 @@ public class LoginController {
 				return new RequestView(view, true);
 			}else{
 				String id = StringUtil.nvl(request.getParameter("id"));
-				String pw = StringUtil.nvl(request.getParameter("pw"));
+				String pasword = StringUtil.nvl(request.getParameter("pasword"));
 				
 				LoginVO loginVO = dao.selectUserById(id);
-				
+				System.out.println(id);
+				System.out.println(pasword);
+				System.out.println(loginVO.getId());
+				System.out.println(loginVO.getPw());
 				// 인증이 성공하면..
-				if (loginVO.getId().equals(id) && loginVO.getPw().equals(pw)) {
-					
-					
+				if (loginVO.getId().equals(id) && loginVO.getPw().equals(pasword)) {
 					HttpSession session = request.getSession();
-					session.setAttribute("person.sessionInfo", loginVO);
-					view = "main.do";
+					session.setAttribute("clould.sessionInfo", loginVO);
+					view = "/main/mypage";
 					return new RequestView(view, true);
 				}else{
 					System.out.println("인증 실패");
@@ -45,6 +46,7 @@ public class LoginController {
 				}
 			}
 		} catch (Exception e) { // 만약 catch 절이 비어있다면, NullPointException도 무시된다.
+			e.printStackTrace();
 			view = "login/login";
 			request.setAttribute("message", e.getMessage());
 			// logger.error("외부전달 오류");
@@ -55,13 +57,13 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping("logout.do")
+	@RequestMapping("logout")
 	public View logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		//request.setAttribute("message", "로그아웃 되었습니다.");
 		//return new CommandResult("login/login");
-		return new RequestView("/framework/framework/main/main.do", true);
+		return new RequestView("/main/main", true);
 	}
 }
