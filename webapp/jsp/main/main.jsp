@@ -6,11 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인페이지</title>
-<link rel="stylesheet" type="text/css" href="/clould/css/common.css" />
-<link rel="stylesheet" type="text/css" href="/clould/css/main/main.css" />
-<script src="/clould/js/common.js"></script>
-<script src="/clould/js/login/login.js"></script>
-<script src="/clould/js/main/main.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/common.css" />
+<link rel="stylesheet" type="text/css" href="/css/main/main.css" />
+<script src="/js/common.js"></script>
+<script src="/js/login/login.js"></script>
+<script src="/js/main/main.js"></script>
 <script type="text/javascript">
 /********************************************************************************
  * 기      능   	:  페이징 처리
@@ -30,7 +30,7 @@
   * @return  	:
   ********************************************************************************/
  var file_down = function(fileName) {
- 	location.href="/framework/framework/common/download.do?path_key=barcode&file_nm=" + fileName;
+ 	location.href="/file/download";
  }
  
 </script>
@@ -94,10 +94,10 @@
 						 page="${noticePage}" 
 						 totalCount="${noticeTotalCount}" 
 						 listPerPage="10" 
-						 beginLabel="images/btn/btn_larrow.gif"
-						 prevLabel="images/btn/btn_llarrow.gif"
-						 endLabel="images/btn/btn_rrarrow.gif"
-						 nextLabel="images//btn/btn_rarrow.gif"
+						 beginLabel="/images/btn/btn_larrow.gif"
+						 prevLabel="/images/btn/btn_llarrow.gif"
+						 endLabel="/images/btn/btn_rrarrow.gif"
+						 nextLabel="/images//btn/btn_rarrow.gif"
 						 pageGroupSize="5" 
 						 linkType="script" />
 			<!-- //paging -->
