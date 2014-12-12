@@ -16,7 +16,7 @@
 			FROM 
 				(SELECT @ROWNUM:=@ROWNUM+1 AS ROW, T1.*
 					FROM 
-						(SELECT * FROM BOARD WHERE 1=1 ORDER BY SEQ) T1, (SELECT @ROWNUM:=0) T2
+						(SELECT * FROM BOARD) T1, (SELECT @ROWNUM:=0) T2
 						WHERE 1=1
 						<isEqual property="keyword" compareValue="ALL">
 							<isNotEmpty prepend="AND" property="txt_search">
@@ -40,6 +40,7 @@
 								]]>
 						    </isNotEmpty>
 						</isEqual>	 
+						ORDER BY SEQ DESC
 						) T3
 						WHERE 1=1
 				<![CDATA[
