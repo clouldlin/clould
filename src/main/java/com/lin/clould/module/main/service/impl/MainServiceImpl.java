@@ -28,5 +28,10 @@ public class MainServiceImpl implements MainService {
 	public Map mainNoticeView(String seq) throws Exception {
 		return mainDAO.mainNoticeView(seq);
 	}
+	
+	@Override
+	public List<?> mainNoticeCode(Map<String, Object> paramMap) throws Exception {
+		return mainDAO.mainNoticeCode(paramMap);
+	}
 
 }

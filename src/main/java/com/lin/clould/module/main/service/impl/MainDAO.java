@@ -22,6 +22,10 @@ public class MainDAO extends CommonDao {
 	public Map mainNoticeView(String seq) throws Exception {
 		return (Map)selectByPk("BoardSQL001.mainNoticeView", seq);
 	}
+
+	public List<?> mainNoticeCode(Map<String, Object> paramMap) throws Exception {
+		return list("BoardSQL001.mainNoticeCode", paramMap);
+	}
 	
 
 }

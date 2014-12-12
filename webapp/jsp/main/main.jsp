@@ -97,7 +97,7 @@
 		   	<!-- paging -->
 			<paging:page link="#" 
 						 linkMethod="fn_linkPage"	
-						 page="${noticePage}" 
+						 page="${pageIndex}" 
 						 totalCount="${noticeTotalCount}" 
 						 listPerPage="10" 
 						 beginLabel="../images/btn/btn_larrow.gif"
@@ -113,13 +113,13 @@
 		<div>
 		<form name="searchFrm" action="/main/main" method="get">
 			<select name="keyword" id="keyword" title="검색분류 선택" style="width:100px;">
-				<option selected value=''>--선택하세요--</option>
-				<option value="ALL" <c:if test="${keyword == 'ALL'}">selected="selected"</c:if>>전체</option>
-				<option value="TITLE" <c:if test="${keyword == 'TITLE'}">selected="selected"</c:if>>제목</option>
-				<option value="CONTENT" <c:if test="${keyword == 'CONTENT'}">selected="selected"</c:if>>내용</option>
+				<option value="" selected="selected">전체</option>
+				<c:forEach var="codeList" items="${codeList}" varStatus="status">
+						<option value="${codeList.VALUE}" <c:if test="${keyword == codeList.VALUE}"> selected="selected"</c:if> > ${codeList.DATA}</option>
+				</c:forEach>
 			</select>
 			<input type="text" name="txt_search" value="${txt_search}" />
-			<input type="hidden" name="pageIndex" />
+			<input type="hidden" name="pageIndex" value="${pageIndex}" />
 			<input type="submit" value="검색"  />
 		</form>
 		

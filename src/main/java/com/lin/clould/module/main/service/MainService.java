@@ -13,4 +13,6 @@ public interface MainService {
 	
 	Map mainNoticeView(String seq) throws Exception;
 
+	List<?> mainNoticeCode(Map<String, Object> paramMap) throws Exception;
+
 }

@@ -46,6 +46,11 @@
 		 		]]>
 	</select>
 	
+	<!-- 메인 공지사항 리스트 -->
+	<select id="mainNoticeCode" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT * FROM CODE
+	</select>
+	
 	<!-- 메인 공지사항 전체 갯수 -->
 	<select id="mainNoticeListTotalCount" parameterClass="java.util.HashMap" resultClass="int">
 		SELECT COUNT(*) 
