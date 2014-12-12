@@ -81,7 +81,9 @@
 					<tbody>
 	                    <c:forEach var="list" items="${noticeList}" varStatus="status">
 							<tr id="nooticeList_${status.index}">
-								<td><a href="/main/noticeView?seq=${list.seq}">${list.seq}</a></td>
+								<td><a href="/main/noticeView?seq=${list.seq}">
+									<c:out value="${noticeTotalCount + 1 - ((pageIndex-1) * 10 + status.count)}"/>
+								</a></td>
 								<td>${list.title}</td>
 								<td>${list.content}</td>
 							</tr>
@@ -113,7 +115,7 @@
 		<div>
 		<form name="searchFrm" action="/main/main" method="get">
 			<select name="keyword" id="keyword" title="검색분류 선택" style="width:100px;">
-				<option value="" selected="selected">전체</option>
+				<option value="ALL" selected="selected">전체</option>
 				<c:forEach var="codeList" items="${codeList}" varStatus="status">
 						<option value="${codeList.VALUE}" <c:if test="${keyword == codeList.VALUE}"> selected="selected"</c:if> > ${codeList.DATA}</option>
 				</c:forEach>

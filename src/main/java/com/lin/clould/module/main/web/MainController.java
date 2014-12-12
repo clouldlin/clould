@@ -28,6 +28,8 @@ public class MainController {
 	@RequestMapping("main")
 	public View main(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		int pageIndex = StringUtil.isEmpty(request.getParameter("pageIndex")) ? 1 : Integer.parseInt(request.getParameter("pageIndex"));
+		
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("firstIndex", StringUtil.isEmpty(request.getParameter("pageIndex"))? 1 : (Integer.parseInt(request.getParameter("pageIndex")) - 1) * 10 + 1);
 		paramMap.put("lastIndex", StringUtil.isEmpty(request.getParameter("pageIndex"))? 10 : Integer.parseInt(request.getParameter("pageIndex")) * 10);
@@ -44,7 +46,7 @@ public class MainController {
 		request.setAttribute("noticeTotalCount", noticeTotalCount);
 		request.setAttribute("noticeList", noticeList);
 		request.setAttribute("codeList", codeList);
-		request.setAttribute("pageIndex", request.getParameter("pageIndex"));
+		request.setAttribute("pageIndex", pageIndex);
 		request.setAttribute("keyword", request.getParameter("keyword"));
 		request.setAttribute("txt_search", request.getParameter("txt_search"));
 		

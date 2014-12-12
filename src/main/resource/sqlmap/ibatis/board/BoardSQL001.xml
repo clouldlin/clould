@@ -4,6 +4,7 @@
 <sqlMap namespace="BoardSQL001">
 	
 	<resultMap id="boardMap" class="java.util.HashMap">
+		<result property="row" 		column="ROW" 	javaType="String" 	/>
 		<result property="seq" 		column="SEQ" 	javaType="String" 	/>
 		<result property="title"	column="TITLE" 		javaType="String" 	/>
 		<result property="content" 	column="CONTENT" 	javaType="String" 	/>
