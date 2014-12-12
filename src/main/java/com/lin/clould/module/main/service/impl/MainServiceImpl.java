@@ -24,4 +24,9 @@ public class MainServiceImpl implements MainService {
 		mainDAO.mainNoticeInsert(paramMap);
 	}
 
+	@Override
+	public Map mainNoticeView(String seq) throws Exception {
+		return mainDAO.mainNoticeView(seq);
+	}
+
 }

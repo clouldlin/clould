@@ -10,5 +10,7 @@ public interface MainService {
 	Integer mainNoticeListTotalCount(Map<String, Object> paramMap) throws Exception;
 
 	void mainNoticeInsert(Map<String, Object> paramMap) throws Exception;
+	
+	Map mainNoticeView(String seq) throws Exception;
 
 }

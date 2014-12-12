@@ -18,5 +18,10 @@ public class MainDAO extends CommonDao {
 	public void mainNoticeInsert(Map<String, Object> paramMap) throws Exception {
 		insert("BoardSQL001.mainNoticeInsert", paramMap);
 	}
+	
+	public Map mainNoticeView(String seq) throws Exception {
+		return (Map)selectByPk("BoardSQL001.mainNoticeView", seq);
+	}
+	
 
 }

@@ -1,6 +1,5 @@
 package com.lin.clould.module.main.web;
 
-import java.awt.image.renderable.ParameterBlock;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -54,38 +53,48 @@ public class MainController {
 	@RequestMapping("noticeInsert")
 	public View noticeInsert(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		int fileMaxSize = 50*1024*1024; // 50메가
+		int fileMaxSize = 50 * 1024 * 1024; // 50메가
 		String filePath = "/home/files/clould";
-		
+
 		MultipartRequest multi;
 		ArrayList<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();
 
-			multi = new MultipartRequest(request, filePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
-			
-			Enumeration<?> fileNames = multi.getFileNames();
-			
-			while(fileNames.hasMoreElements()){
-				Map<String, Object> fileMap = new HashMap<String, Object>();
-				String formName = (String) fileNames.nextElement();
-				
-				String fileName = multi.getFilesystemName(formName);
-				String fileOrgName = multi.getOriginalFileName(formName);
-				
-				fileMap.put("FILE_NAME"   , fileName);
-				fileMap.put("FILE_ORG_NAME", fileOrgName);
-				fileList.add(fileMap);	
-			}
-		
+		multi = new MultipartRequest(request, filePath, fileMaxSize, "UTF-8",
+				new DefaultFileRenamePolicy());
 
-			Map<String, Object> paramMap = new HashMap<String, Object>();
-			paramMap.put("title", multi.getParameter("title"));
-			paramMap.put("content", multi.getParameter("content"));
+		Enumeration<?> fileNames = multi.getFileNames();
+
+		while (fileNames.hasMoreElements()) {
+			Map<String, Object> fileMap = new HashMap<String, Object>();
+			String formName = (String) fileNames.nextElement();
+
+			String fileName = multi.getFilesystemName(formName);
+			String fileOrgName = multi.getOriginalFileName(formName);
+
+			fileMap.put("FILE_NAME", fileName);
+			fileMap.put("FILE_ORG_NAME", fileOrgName);
+			fileList.add(fileMap);
+		}
+
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("title", multi.getParameter("title"));
+		paramMap.put("content", multi.getParameter("content"));
+
+		System.out.println(paramMap.toString());
+
+		mainService.mainNoticeInsert(paramMap);
+
+		return new RequestView("/main/main", true);
+	}
+	@RequestMapping("noticeView")
+	public View noticeView(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-			System.out.println(paramMap.toString());
-			
-			mainService.mainNoticeInsert(paramMap);
+		String seq = request.getParameter("seq");
 		
+		Map noticeView = mainService.mainNoticeView(seq);
+		System.out.println(noticeView.toString());
+		request.setAttribute("noticeView", noticeView);
 		
-			return new RequestView("/main/main", true);
+		return new RequestView("/main/notice");
 	}
 }

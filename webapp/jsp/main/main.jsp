@@ -84,7 +84,7 @@
 					<tbody>
 	                    <c:forEach var="list" items="${noticeList}" varStatus="status">
 							<tr id="nooticeList_${status.index}">
-								<td>${list.seq}</td>
+								<td><a href="/main/noticeView?seq=${list.seq}">${list.seq}</a></td>
 								<td>${list.title}</td>
 								<td>${list.content}</td>
 							</tr>
