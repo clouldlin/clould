@@ -15,9 +15,34 @@
 			FROM 
 				(SELECT @ROWNUM:=@ROWNUM+1 AS ROW, T1.*
 					FROM 
-						(SELECT * FROM BOARD WHERE 1=1 ORDER BY SEQ) T1, (SELECT @ROWNUM:=0) T2) T3
+						(SELECT * FROM BOARD WHERE 1=1 ORDER BY SEQ) T1, (SELECT @ROWNUM:=0) T2
+						WHERE 1=1
+						<isEqual property="keyword" compareValue="ALL">
+							<isNotEmpty prepend="AND" property="txt_search">
+								<![CDATA[
+									( TITLE LIKE CONCAT('%',#txt_search#,'%')
+									 OR CONTENT LIKE CONCAT('%',#txt_search#,'%') )
+								]]>
+						    </isNotEmpty>
+						</isEqual>
+						<isEqual property="keyword" compareValue="TITLE">
+							<isNotEmpty prepend="AND" property="txt_search">
+								<![CDATA[
+									 TITLE LIKE CONCAT('%',#txt_search#,'%') 
+								]]>
+						    </isNotEmpty>
+						</isEqual>
+						<isEqual property="keyword" compareValue="CONTENT">
+							<isNotEmpty prepend="AND" property="txt_search">
+								<![CDATA[
+									 CONTENT LIKE CONCAT('%',#txt_search#,'%')
+								]]>
+						    </isNotEmpty>
+						</isEqual>	 
+						) T3
+						WHERE 1=1
 				<![CDATA[
-						WHERE T3.ROW BETWEEN #firstIndex# AND #lastIndex#
+						AND T3.ROW BETWEEN #firstIndex# AND #lastIndex#
 		 		]]>
 	</select>
 	
@@ -25,6 +50,29 @@
 	<select id="mainNoticeListTotalCount" parameterClass="java.util.HashMap" resultClass="int">
 		SELECT COUNT(*) 
 		  FROM BOARD
+		  WHERE 1=1
+		<isEqual property="keyword" compareValue="ALL">
+			<isNotEmpty prepend="AND" property="txt_search">
+				<![CDATA[
+					( TITLE LIKE CONCAT('%',#txt_search#,'%')
+					 OR CONTENT LIKE CONCAT('%',#txt_search#,'%') )
+				]]>
+		    </isNotEmpty>
+		</isEqual>
+		<isEqual property="keyword" compareValue="TITLE">
+			<isNotEmpty prepend="AND" property="txt_search">
+				<![CDATA[
+					 TITLE LIKE CONCAT('%',#txt_search#,'%')
+				]]>
+		    </isNotEmpty>
+		</isEqual>
+		<isEqual property="keyword" compareValue="CONTENT">
+			<isNotEmpty prepend="AND" property="txt_search">
+				<![CDATA[
+					 CONTENT LIKE CONCAT('%',#txt_search#,'%')
+				]]>
+		    </isNotEmpty>
+		</isEqual>
 	</select>
 	
 	<!-- 메인 공지사항 상세보기 -->

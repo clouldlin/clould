@@ -31,6 +31,8 @@ public class MainController {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("firstIndex", StringUtil.isEmpty(request.getParameter("pageIndex"))? 0 : (Integer.parseInt(request.getParameter("pageIndex")) - 1) * 10 + 1);
 		paramMap.put("lastIndex", StringUtil.isEmpty(request.getParameter("pageIndex"))? 10 : Integer.parseInt(request.getParameter("pageIndex")) * 10);
+		paramMap.put("keyword", request.getParameter("keyword"));
+		paramMap.put("txt_search", request.getParameter("txt_search"));
 		
 		int noticeTotalCount = mainService.mainNoticeListTotalCount(paramMap);
 		List<?> noticeList = mainService.mainNoticeList(paramMap);
@@ -39,6 +41,8 @@ public class MainController {
 		request.setAttribute("noticeTotalCount", noticeTotalCount);
 		request.setAttribute("noticeList", noticeList);
 		request.setAttribute("noticePage", request.getParameter("pageIndex"));
+		request.setAttribute("keyword", request.getParameter("keyword"));
+		request.setAttribute("txt_search", request.getParameter("txt_search"));
 		
 		return new RequestView("main/main");
 	}
@@ -86,6 +90,7 @@ public class MainController {
 
 		return new RequestView("/main/main", true);
 	}
+	
 	@RequestMapping("noticeView")
 	public View noticeView(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		

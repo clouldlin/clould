@@ -18,7 +18,7 @@
  * @return  	:
  ********************************************************************************/
  var fn_linkPage = function(pageIndex){
-	 var f = document.noticeFrm;
+	 var f = document.searchFrm;
 	 f.pageIndex.value = pageIndex;
 	 f.action = "/main/main";
 	 f.submit();
@@ -64,9 +64,6 @@
 			</form>
 			
 			<div>
-				<form name="noticeFrm" id="noticeFrm" method="get">
-					<input type="hidden" name="pageIndex" />
-				</form>
 				<table summary="순번, 제목, 내용" >
 					<caption>메인 공지사항</caption>
 					<colgroup>
@@ -111,6 +108,23 @@
 						 linkType="script" />
 			<!-- //paging -->
 		</div>
+		<br />
+		<!-- 검색영역  -->
+		<div>
+		<form name="searchFrm" action="/main/main" method="get">
+			<select name="keyword" id="keyword" title="검색분류 선택" style="width:100px;">
+				<option selected value=''>--선택하세요--</option>
+				<option value="ALL" <c:if test="${keyword == 'ALL'}">selected="selected"</c:if>>전체</option>
+				<option value="TITLE" <c:if test="${keyword == 'TITLE'}">selected="selected"</c:if>>제목</option>
+				<option value="CONTENT" <c:if test="${keyword == 'CONTENT'}">selected="selected"</c:if>>내용</option>
+			</select>
+			<input type="text" name="txt_search" value="${txt_search}" />
+			<input type="hidden" name="pageIndex" />
+			<input type="submit" value="검색"  />
+		</form>
+		
+		</div>
+		
 	</div>
 	<div class="footer"></div>
 </div>
