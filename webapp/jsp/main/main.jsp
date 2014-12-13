@@ -33,6 +33,18 @@
  	location.href="/file/download";
  }
  
+ /********************************************************************************
+  * 기      능   	:  검색
+  * @param obj	:
+  * @return  	:
+  ********************************************************************************/
+ var search = function() {
+	  var f = document.searchFrm;
+	 f.pageIndex.value = 1;
+	 f.action = "/main/main";
+	 f.submit();
+ }
+ 
 </script>
 </head>
 <body>
@@ -113,22 +125,20 @@
 		<br />
 		<!-- 검색영역  -->
 		<div>
-		<form name="searchFrm" action="/main/main" method="get">
-			<select name="keyword" id="keyword" title="검색분류 선택" style="width:100px;">
-				<option value="ALL" selected="selected">전체</option>
-				<c:forEach var="codeList" items="${codeList}" varStatus="status">
+			<form name="searchFrm" action="/main/main" method="get">
+				<select name="keyword" id="keyword" title="검색분류 선택" style="width:100px;">
+					<option value="ALL" selected="selected">전체</option>
+					<c:forEach var="codeList" items="${codeList}" varStatus="status">
 						<option value="${codeList.VALUE}" <c:if test="${keyword == codeList.VALUE}"> selected="selected"</c:if> > ${codeList.DATA}</option>
-				</c:forEach>
-			</select>
-			<input type="text" name="txt_search" value="${txt_search}" />
-			<input type="hidden" name="pageIndex" value="${pageIndex}" />
-			<input type="submit" value="검색"  />
-		</form>
-		
+					</c:forEach>
+				</select>
+				<input type="text" name="txt_search" value="${txt_search}" />
+				<input type="hidden" name="pageIndex" value="${pageIndex}" />
+				<input type="submit" onclick="javascript:search(); return false;" value="검색"  />
+			</form>
 		</div>
-		
 	</div>
-	<div class="footer"></div>
+	<div class="footer">clould@gmail.com</div>
 </div>
 
 </body>
