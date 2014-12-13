@@ -103,9 +103,11 @@ public class MainController {
 		String seq = request.getParameter("seq");
 		
 		Map noticeView = mainService.mainNoticeView(seq);
-		System.out.println(noticeView.toString());
 		request.setAttribute("noticeView", noticeView);
 		
+		request.setAttribute("pageIndex", request.getParameter("pageIndex"));
+		request.setAttribute("keyword", request.getParameter("keyword"));
+		request.setAttribute("txt_search", request.getParameter("txt_search"));
 		return new RequestView("/main/notice");
 	}
 }

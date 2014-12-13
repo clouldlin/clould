@@ -14,7 +14,7 @@
 <script type="text/javascript">
 /********************************************************************************
  * 기      능   	:  페이징 처리
- * @param obj	:
+ * @param obj	:	pageIndex
  * @return  	:
  ********************************************************************************/
  var fn_linkPage = function(pageIndex){
@@ -26,11 +26,11 @@
  
  /********************************************************************************
   * 기      능   	:  파일다운로드 처리
-  * @param obj	:
+  * @param obj	:	fileName
   * @return  	:
   ********************************************************************************/
  var file_down = function(fileName) {
- 	location.href="/file/download";
+ 	 location.href="/file/download";
  }
  
  /********************************************************************************
@@ -39,7 +39,7 @@
   * @return  	:
   ********************************************************************************/
  var search = function() {
-	  var f = document.searchFrm;
+	 var f = document.searchFrm;
 	 f.pageIndex.value = 1;
 	 f.action = "/main/main";
 	 f.submit();
@@ -93,7 +93,7 @@
 					<tbody>
 	                    <c:forEach var="list" items="${noticeList}" varStatus="status">
 							<tr id="nooticeList_${status.index}">
-								<td><a href="/main/noticeView?seq=${list.seq}">
+								<td><a href="/main/noticeView?seq=${list.seq}&pageIndex=${pageIndex}&txt_search=${txt_search}&keyword=${keyword}">
 									<c:out value="${noticeTotalCount + 1 - ((pageIndex-1) * 10 + status.count)}"/>
 								</a></td>
 								<td>${list.title}</td>

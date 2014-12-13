@@ -27,7 +27,8 @@
 		<p>${noticeView.CONTENT}</p>
 		<p>${noticeView.TITLE}</p>
 	</div>
-	<p><a href="/main/main">목록으로</a></p>
+	<p><a href="/main/main?pageIndex=${pageIndex}&txt_search=${txt_search}&keyword=${keyword}">목록으로</a></p>
+	<p><a href="/main/main">메인페이지 이동</a></p>
 	<div class="footer"></div>
 </div>
 
