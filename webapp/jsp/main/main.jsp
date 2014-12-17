@@ -53,7 +53,7 @@
 </div>
 <div class="wrapper">  
 	<div class="header">
-		<div class="main_title">메인</div>
+		<div class="main_title">메인1111</div>
 		<div class="login">
 			<form method="post" action="/login/login">
 				<input type="text" size="15" name="id" id="id">
