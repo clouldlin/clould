@@ -9,7 +9,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 public class SqlMapClientManager {
 
-	private static String PATH_SQL_MPA_CONFIG_XML = "context/database/ibatis/sql-map-config.xml";
+	private static String PATH_SQL_MPA_CONFIG_XML = "database/ibatis/sql-map-config.xml";
 	private static String ENCODING = "UTF-8";
 	private static SqlMapClient sqlMap;
 

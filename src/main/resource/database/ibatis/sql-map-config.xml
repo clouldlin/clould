@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 <sqlMapConfig>
 	
-	<properties resource="property/database/maria_database.properties" />
+	<properties resource="property/globals_local.properties" />
 	
 	<settings 
 		cacheModelsEnabled="true" enhancementEnabled="true"
@@ -21,5 +21,5 @@
 		</dataSource>
 	</transactionManager>
 	
-	<sqlMap resource="sqlmap/ibatis/board/BoardSQL001.xml" />
+	<sqlMap resource="database/ibatis/sqlmap/board/BoardSQL001.xml" />
 </sqlMapConfig>

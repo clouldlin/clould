@@ -16,7 +16,7 @@ public class DatabaseConnectionTest {
 	private static final String DATABASE_PASSWORD = "password";
 	private static final String DATABASE_USERNAME = "username";
 
-	private static final String PROPERTY_DATABASE_CENTOS_DATABASE_PROPERTIES = "property/database/maria_database.properties";
+	private static final String PROPERTY_DATABASE_CENTOS_DATABASE_PROPERTIES = "property/globals_local.properties";
 	
 	private PropertyFileReader getDatabasePropertyObject(String property_file) {
 		PropertyFileReader property = new PropertyFileReader();
