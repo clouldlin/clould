@@ -82,22 +82,27 @@
 						<col width="10%" />
 						<col width="*" />
 						<col width="*" />
+						<col width="*" />
 					</colgroup>
 					<thead>
 						<tr>
 							<th scope="col"><label>순번</label></th>
 							<th scope="col"><label>제목</label></th>
 							<th scope="col"><label>내용</label></th>
+							<th scope="col"><label>등록일</label></th>
 						</tr>
 					</thead>
 					<tbody>
 	                    <c:forEach var="list" items="${noticeList}" varStatus="status">
 							<tr id="nooticeList_${status.index}">
-								<td><a href="/main/noticeView?seq=${list.seq}&pageIndex=${pageIndex}&txt_search=${txt_search}&keyword=${keyword}">
+								<td>
+								<a href="/main/noticeView?seq=${list.seq}&pageIndex=${pageIndex}&txt_search=${txt_search}&keyword=${keyword}">
 									<c:out value="${noticeTotalCount + 1 - ((pageIndex-1) * 10 + status.count)}"/>
-								</a></td>
+								</a>
+								</td>
 								<td>${list.title}</td>
 								<td>${list.content}</td>
+								<td>${list.reg_date}</td>
 							</tr>
 						</c:forEach>
 						<c:if test="${empty noticeList}">
