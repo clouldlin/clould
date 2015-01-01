@@ -69,8 +69,7 @@ public class MainController {
 		MultipartRequest multi;
 		ArrayList<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();
 
-		multi = new MultipartRequest(request, filePath, fileMaxSize, "UTF-8",
-				new DefaultFileRenamePolicy());
+		multi = new MultipartRequest(request, filePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
 
 		Enumeration<?> fileNames = multi.getFileNames();
 
