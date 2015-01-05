@@ -12,13 +12,18 @@
 	<typeHandler callback="com.ibatis.sqlmap.engine.type.SqlTimestampTypeHandler" javaType="java.util.Date" />
 	
 	<transactionManager type="JDBC" commitRequired="true">
-		<dataSource type="SIMPLE">
-			<property name="JDBC.Driver" value="${driver}" />
-			<property name="JDBC.ConnectionURL" value="${url}" />
-			<property name="JDBC.Username" value="${username}" />
-			<property name="JDBC.Password" value="${password}" />
-			<property name="Driver.SetBigStringTryClob" value="true" />
-		</dataSource>
+		<dataSource type ="JNDI">
+       	<property name="DBJndiContext" value="java:comp/env/jdbc/tomcat7"/>
+  		</dataSource>
+		<!-- 		
+			<dataSource type="SIMPLE">
+				<property name="JDBC.Driver" value="${driver}" />
+				<property name="JDBC.ConnectionURL" value="${url}" />
+				<property name="JDBC.Username" value="${username}" />
+				<property name="JDBC.Password" value="${password}" />
+				<property name="Driver.SetBigStringTryClob" value="true" />
+			</dataSource> 
+		-->
 	</transactionManager>
 	
 	<sqlMap resource="database/ibatis/sqlmap/board/BoardSQL001.xml" />
