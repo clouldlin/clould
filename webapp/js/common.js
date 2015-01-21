@@ -1,4 +1,4 @@
-Common = function() {};
+var Common = function() {};
 
 Common.eventBind = function addListener(elem, ev, listener) {
 	if (elem.addEventListener) { // IE 이외의 브라우저 대응

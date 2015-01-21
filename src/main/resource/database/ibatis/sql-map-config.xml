@@ -17,12 +17,25 @@
        			<property name="DBJndiContext" value="java:comp/env/jdbc/tomcat7"/>
   			</dataSource> 
   		-->
-			<dataSource type="SIMPLE">
+			<dataSource type="DBCP">
 				<property name="JDBC.Driver" value="${driver}" />
 				<property name="JDBC.ConnectionURL" value="${url}" />
 				<property name="JDBC.Username" value="${username}" />
 				<property name="JDBC.Password" value="${password}" />
 				<property name="Driver.SetBigStringTryClob" value="true" />
+				<property name="initialSize" value="5"/>
+	            <property name="maxActive" value="30"/>
+	            <property name="maxIdle" value="20"/>
+	            <property name="maxWait" value="60000"/>
+	            <property name="poolPreparedStatements" value="true"/>
+	            <property name="validationQuery" value="select 0 from dual"/>
+	            <property name="testOnBorrow" value="true"/>
+	            <property name="maximumActiveConnections" value="10"/>
+	            <property name="maximumIdleConnections" value="5"/>
+	            <property name="maximumWait" value="60000"/>
+	            <property name="logAbandoned" value="false"/>
+	            <property name="removeAbandoned" value="false"/>
+	            <property name="removeAbandonedTimeout" value="50000"/>
 			</dataSource> 
 	</transactionManager>
 	
